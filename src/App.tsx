@@ -4,6 +4,7 @@ import "./App.css";
 import { RootStore } from "./Store";
 import { GetPokemon } from "./actions/PokemonActions";
 import { GetVerse } from "./actions/BibleActions";
+import { GetEsvVerse } from "./actions/EsvActions";
 
 import BookSelector from "./components/BookSelector";
 import ChapterSelector from "./components/ChapterSelector";
@@ -71,6 +72,9 @@ function App() {
     var getChapterAndBook = book + "+" + chapter;
     dispatch(GetVerse(getChapterAndBook));
     console.log("Current book: ", book, "| Current chapter:", chapter);
+
+    // TODO: work on this dispatch
+    dispatch(GetEsvVerse("Genesis+1:1"))
 
     // Reset displayVerse to ""
     setDiplayVerses("Please SELECT verses");

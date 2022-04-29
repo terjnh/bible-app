@@ -7,4 +7,8 @@ Typescript + Redux + Thunk
 - https://bible-api.com
 
 ## Update:
-- Added responsive UI for mobile browser
+[dev-esv] branch
+- In App.tsx:
+  dispatch(GetEsvVerse("Genesis+1:1"))
+  - Able to GET crossway API with authorization key
+- Modified .gitignore
