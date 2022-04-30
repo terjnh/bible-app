@@ -22,6 +22,7 @@ function App() {
   const [bibleName, setBibleName] = useState("");
   const [isLoadingBible, setIsLoadingBible] = useState(false);
   const bibleState = useSelector((state: RootStore) => state.bible);
+  const esvState = useSelector((state: RootStore) => state.esv);
 
   const [book, setBook] = useState("");
   const [chapters, setChapters] = useState(0);
@@ -73,8 +74,7 @@ function App() {
     dispatch(GetVerse(getChapterAndBook));
     console.log("Current book: ", book, "| Current chapter:", chapter);
 
-    // TODO: work on this dispatch
-    dispatch(GetEsvVerse("Genesis+1:1"))
+    // dispatch(GetEsvVerse(getChapterAndBook))
 
     // Reset displayVerse to ""
     setDiplayVerses("Please SELECT verses");
@@ -104,14 +104,22 @@ function App() {
   }, [book]);
 
   useEffect(() => {
-    console.log(
-      "min verse:",
-      bibleState.bible?.verses[currentVerses[0] - 1].verse
-    );
-    console.log(
-      "max verse:",
-      bibleState.bible?.verses[currentVerses[1] - 1].verse
-    );
+    console.log("current book: ", book)
+    console.log("current chapter: ", currentChapter)
+    console.log("current verses:", currentVerses)
+    var reformatVerses = currentVerses[0] + "-" + currentVerses[1]
+    var queryBookChapterVerses = book + "+" + currentChapter + ":" + reformatVerses
+    dispatch(GetEsvVerse(queryBookChapterVerses))
+    // console.log("esvState.esv.passages:", esvState.esv?.passages)
+
+    // console.log(
+    //   "min verse:",
+    //   bibleState.bible?.verses[currentVerses[0] - 1].verse
+    // );
+    // console.log(
+    //   "max verse:",
+    //   bibleState.bible?.verses[currentVerses[1] - 1].verse
+    // );
     const fromVerse = bibleState.bible?.verses[currentVerses[0] - 1].verse;
     const toVerse = bibleState.bible?.verses[currentVerses[1] - 1].verse;
     if (fromVerse && toVerse) {

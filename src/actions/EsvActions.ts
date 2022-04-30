@@ -27,11 +27,11 @@ export const GetEsvVerse =
         })
         .then((response) => {
           // if request is good...
-          console.log("if the request is good:", response.data);
+          console.log("ESV response:", response.data);
           return response;
         })
         .catch((error) => {
-          console.log("error " + error);
+          console.log("ESV error " + error);
           return error;
         });
 
