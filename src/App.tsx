@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./App.css";
 import { RootStore } from "./Store";
-import { GetPokemon } from "./actions/PokemonActions";
 import { GetVerse } from "./actions/BibleActions";
 import { GetEsvVerse } from "./actions/EsvActions";
 
@@ -13,7 +12,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { CHAPTERS, BOOKS } from "./assets/definestrings";
+import { CHAPTERS, BOOKS, COPYRIGHT_TEXT_LN1, COPYRIGHT_TEXT_LN2 } from "./assets/definestrings";
 import VerseSelector from "./components/VerseSelector";
 
 function App() {
@@ -33,7 +32,8 @@ function App() {
 
   const [currentChapter, setCurrentChapter] = useState(0);
   const [currentVerses, setCurrentVerses] = useState<any>([]);
-  const [displayVerses, setDiplayVerses] = useState<string>("");
+
+  const [esvDisplayVerses, setEsvDisplayVerses] = useState<string>("");
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setBibleName(event.target.value);
@@ -56,16 +56,6 @@ function App() {
     console.log("book:", book, ", maxChapter:", maxChapter);
     // updateMaxChapter(book);
   };
-  // const updateMaxChapter = (book: string) => {
-  //   switch (book) {
-  //     case BOOKS.GENESIS:
-  //       return setChapters(CHAPTERS.GENESIS);
-  //     case BOOKS.EXODUS:
-  //       return setChapters(CHAPTERS.EXODUS);
-  //     default:
-  //       return setChapters(0);
-  //   }
-  // };
 
   const updateChapter = (chapter: number) => {
     setCurrentChapter(chapter);
@@ -77,11 +67,11 @@ function App() {
     // dispatch(GetEsvVerse(getChapterAndBook))
 
     // Reset displayVerse to ""
-    setDiplayVerses("Please SELECT verses");
+    setEsvDisplayVerses("Please SELECT verses");
   };
   const chapterChanged = () => {
     setIsChapterChosen(false);
-    setDiplayVerses("Chapter changed, please confirm chapter...");
+    setEsvDisplayVerses("Chapter changed, please confirm chapter...");
   };
 
   const updateVerses = (verses: number[]) => {
@@ -99,80 +89,73 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setDiplayVerses("Book changed, please re-select chapter...");
+    setEsvDisplayVerses("Book changed, please re-select chapter...");
     setIsChapterChosen(false);
   }, [book]);
 
   useEffect(() => {
-    console.log("current book: ", book)
-    console.log("current chapter: ", currentChapter)
-    console.log("current verses:", currentVerses)
-    var reformatVerses = currentVerses[0] + "-" + currentVerses[1]
-    var queryBookChapterVerses = book + "+" + currentChapter + ":" + reformatVerses
-    dispatch(GetEsvVerse(queryBookChapterVerses))
-    // console.log("esvState.esv.passages:", esvState.esv?.passages)
-
-    // console.log(
-    //   "min verse:",
-    //   bibleState.bible?.verses[currentVerses[0] - 1].verse
-    // );
-    // console.log(
-    //   "max verse:",
-    //   bibleState.bible?.verses[currentVerses[1] - 1].verse
-    // );
-    const fromVerse = bibleState.bible?.verses[currentVerses[0] - 1].verse;
-    const toVerse = bibleState.bible?.verses[currentVerses[1] - 1].verse;
-    if (fromVerse && toVerse) {
-      const rangeVerse = toVerse - fromVerse;
-    }
-    let versesString: string = "";
-    if (fromVerse && toVerse) {
-      for (let i = fromVerse - 1; i < toVerse; i++) {
-        let verseNum = i + 1;
-        versesString =
-          versesString +
-          verseNum +
-          " " +
-          bibleState.bible?.verses[i].text +
-          "\n";
-      }
-    }
-    setDiplayVerses(versesString);
+    console.log("current book: ", book);
+    console.log("current chapter: ", currentChapter);
+    console.log("current verses:", currentVerses);
+    var reformatVerses = currentVerses[0] + "-" + currentVerses[1];
+    var queryBookChapterVerses =
+      book + "+" + currentChapter + ":" + reformatVerses;
+    dispatch(GetEsvVerse(queryBookChapterVerses));
   }, [currentVerses]);
 
   useEffect(() => {
     console.log("API get:", bibleState.bible?.reference);
     // Get number of verses from book+chapter selected
     setVerses(bibleState.bible?.verses.length);
-    if(!bibleState.bible?.reference){
-      console.log("set-loading-FALSE")
-      setIsLoadingVerses(false)
-    } else if(bibleState.bible?.reference) {
-      console.log("set-loading-TRUE")
-      setIsLoadingVerses(true)
+    if (!bibleState.bible?.reference) {
+      console.log("set-loading-FALSE");
+      setIsLoadingVerses(false);
+    } else if (bibleState.bible?.reference) {
+      console.log("set-loading-TRUE");
+      setIsLoadingVerses(true);
     }
-    console.log("isLoadingVerses:", isLoadingVerses)
+    console.log("isLoadingVerses:", isLoadingVerses);
   }, [bibleState]);
+
+  useEffect(() => {
+    const selectedEsvVerses = esvState.esv?.passages[0];
+    // console.log("selectedEsvVerses:", selectedEsvVerses);
+    selectedEsvVerses
+      ? setEsvDisplayVerses(selectedEsvVerses)
+      : setEsvDisplayVerses("");
+  }, [esvState]);
 
   return (
     <div className="App">
       <Box sx={{ margin: "auto", width: "100%", maxWidth: 800 }}>
         <Typography sx={{ mt: 6 }} variant="h3" component="div" gutterBottom>
-          World English Bible App
+          ESV App
         </Typography>
         <Typography variant="h5" component="div" gutterBottom>
           Please select book and chapter as needed
         </Typography>
 
         <Grid container spacing={1}>
-          <Grid item xs={12} sm={3} sx={{ display: "flex", mt: 4 }} justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            sm={3}
+            sx={{ display: "flex", mt: 4 }}
+            justifyContent="center"
+          >
             <BookSelector
               book={book}
               updateBook={updateBook}
               setChapters={setChapters}
             />
           </Grid>
-          <Grid item xs={12} sm={4} sx={{ display: "flex", mt: 4 }} justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            sx={{ display: "flex", mt: 4 }}
+            justifyContent="center"
+          >
             <ChapterSelector
               maxChapter={chapters}
               updateChapter={updateChapter}
@@ -180,7 +163,13 @@ function App() {
               chapterChanged={chapterChanged}
             />
           </Grid>
-          <Grid item xs={12} sm={4} sx={{ display: "flex", mt: 4 }} justifyContent="center">
+          <Grid
+            item
+            xs={12}
+            sm={4}
+            sx={{ display: "flex", mt: 4 }}
+            justifyContent="center"
+          >
             <VerseSelector
               verses={verses}
               updateVerses={updateVerses}
@@ -195,36 +184,28 @@ function App() {
             <div>
               <br />
               <Typography variant="body1" component="div">
-                {displayVerses}
+                {esvDisplayVerses}
               </Typography>
             </div>
           )}
         </Box>
 
-        <Box id="temporarySpacer" sx={{ width: "100%", height: "500px" }}></Box>
+        <Box id="temporarySpacer1" sx={{ width: "100%", height: "200px" }}></Box>
 
-        {/* DEBUGGING */}
-        <Grid container spacing={1}>
-          <Grid item xs={9}>
-            <p>Used for debugging:</p>
-            <TextField
-              fullWidth
-              id="bibleverse-search-field"
-              label="Type here"
-              variant="filled"
-              onChange={handleChange}
-            ></TextField>
-          </Grid>
-          <Grid item xs={3} sx={{ mt: 6 }}>
-            <Button
-              sx={{ margin: "auto", mt: 1.5 }}
-              variant="contained"
-              onClick={handleSubmit}
-            >
-              {isLoadingBible ? "Searching..." : "Search"}
-            </Button>
-          </Grid>
-        </Grid>
+        <Box m={2} pt={2}>
+          {bibleState.bible && (
+            <div>
+              <br />
+              <Typography variant="body2" component="div">
+                {COPYRIGHT_TEXT_LN1}
+                {COPYRIGHT_TEXT_LN2}
+              </Typography>
+            </div>
+          )}
+        </Box>
+
+        <Box id="temporarySpacer2" sx={{ width: "100%", height: "500px" }}></Box>
+
       </Box>
     </div>
   );
