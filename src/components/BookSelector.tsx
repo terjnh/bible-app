@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import MenuBookIcon from '@mui/icons-material/MenuBook';
+import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import { BOOKS, CHAPTERS } from "../assets/definestrings";
 
@@ -49,6 +49,12 @@ const BookSelector: React.FC<SelectorProps> = ({
         return CHAPTERS.RUTH;
       case BOOKS.SAMUEL1:
         return CHAPTERS.SAMUEL1;
+      case BOOKS.SAMUEL2:
+        return CHAPTERS.SAMUEL2;
+      case BOOKS.KINGS1:
+        return CHAPTERS.KINGS1;
+      case BOOKS.KINGS2:
+        return CHAPTERS.KINGS2;
       default:
         return 0;
     }
@@ -157,6 +163,30 @@ const BookSelector: React.FC<SelectorProps> = ({
           }}
         >
           1 Samuel
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.SAMUEL2);
+          }}
+        >
+          2 Samuel
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.KINGS1);
+          }}
+        >
+          1 Kings
+        </MenuItem>
+
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.KINGS2);
+          }}
+        >
+          2 Kings
         </MenuItem>
       </Menu>
     </div>

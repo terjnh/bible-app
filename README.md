@@ -6,5 +6,12 @@ Typescript + Redux + Thunk
 ## API-reference:
 - https://bible-api.com
 
+- https://api.esv.org/docs/passage-text/
+GET Numbers 12, Verses 3 - 5
+eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
+
 ## Update:
-- Added responsive UI for mobile browser
+- Added Crossway's ESV copyright
+- Refactored App.tsx
+- Displayed ESV content into App.tsx
+

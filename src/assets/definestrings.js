@@ -8,6 +8,19 @@ export const BOOKS = {
     JUDGES: "Judges",
     RUTH: "Ruth",
     SAMUEL1: "1Samuel",
+    SAMUEL2: "2Samuel",
+    KINGS1: "1Kings",
+    KINGS2: "2Kings",
+    CHRONICLES1: "1Chronicles",
+    CHRONICLES2: "2Chronicles",
+    EZRA: "Ezra",
+    NEHEMIAH: "Nehemiah",
+    ESTHER: "Esther",
+    JOB: "Job",
+    PSALMS: "Psalms",
+    PROVERBS: "Proverbs",
+    ECCLESIASTES: "Ecclesiastes",
+    SONGOFSOLOMON: "SongOfSolomon",
 }
 
 export const CHAPTERS = {
@@ -20,4 +33,21 @@ export const CHAPTERS = {
     JUDGES: 21,
     RUTH: 4,
     SAMUEL1: 31,
+    SAMUEL2: 24,
+    KINGS1: 22,
+    KINGS2: 25,
+    CHRONICLES1: 29,
+    CHRONICLES2: 36,
+    EZRA: 10,
+    NEHEMIAH: 13,
+    ESTHER: 10,
+    JOB: 42,
+    PSALMS: 150,
+    PROVERBS: 31,
+    ECCLESIASTES: 12,
+    SONGOFSOLOMON: 8,
 }
+
+
+export const COPYRIGHT_TEXT_LN1 = "Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®),"
+export const COPYRIGHT_TEXT_LN2 = " copyright © 2001 by Crossway, a publishing ministry of Good News Publishers.\nUsed by permission. All rights reserved."
