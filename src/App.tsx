@@ -12,8 +12,14 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
-import { CHAPTERS, BOOKS, COPYRIGHT_TEXT_LN1, COPYRIGHT_TEXT_LN2 } from "./assets/definestrings";
+import {
+  CHAPTERS,
+  BOOKS,
+  COPYRIGHT_TEXT_LN1,
+  COPYRIGHT_TEXT_LN2,
+} from "./assets/definestrings";
 import VerseSelector from "./components/VerseSelector";
+import ResponsiveAppBar from "./components/ResponsiveAppBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -131,7 +137,18 @@ function App() {
         <Typography sx={{ mt: 6 }} variant="h3" component="div" gutterBottom>
           ESV App
         </Typography>
-        <Typography variant="h5" component="div" gutterBottom>
+
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          sx={{ display: "flex", mt: 2 }}
+          justifyContent="center"
+        >
+          <ResponsiveAppBar />
+        </Grid>
+
+        <Typography sx={{mt: 4}}variant="h5" component="div" gutterBottom>
           Please select book and chapter as needed
         </Typography>
 
@@ -190,7 +207,10 @@ function App() {
           )}
         </Box>
 
-        <Box id="temporarySpacer1" sx={{ width: "100%", height: "200px" }}></Box>
+        <Box
+          id="temporarySpacer1"
+          sx={{ width: "100%", height: "200px" }}
+        ></Box>
 
         <Box m={2} pt={2}>
           {bibleState.bible && (
@@ -204,8 +224,10 @@ function App() {
           )}
         </Box>
 
-        <Box id="temporarySpacer2" sx={{ width: "100%", height: "500px" }}></Box>
-
+        <Box
+          id="temporarySpacer2"
+          sx={{ width: "100%", height: "500px" }}
+        ></Box>
       </Box>
     </div>
   );
