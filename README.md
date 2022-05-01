@@ -11,7 +11,5 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Added Crossway's ESV copyright
-- Refactored App.tsx
-- Displayed ESV content into App.tsx
+- Vercel: env var issue
 
