@@ -11,5 +11,8 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-[Bug fix]: Handle closing of book-select menu if user clicks outside menu
+- Added more chapters to menu (App.tsx)
 
+
+## TODO:
+- Bug in typing number directly for `Chapter` (it does not update)
