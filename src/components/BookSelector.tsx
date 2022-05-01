@@ -5,6 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 
 import { BOOKS, CHAPTERS } from "../assets/definestrings";
+import { ClickAwayListener } from "@mui/material";
 
 interface SelectorProps {
   book: string;
@@ -25,6 +26,7 @@ const BookSelector: React.FC<SelectorProps> = ({
     setAnchorEl(event.currentTarget);
   };
   const handleClose = (selected: any) => {
+    console.log("selected:", selected);
     setAnchorEl(null);
     setSelectedBook(selected);
   };
@@ -84,111 +86,111 @@ const BookSelector: React.FC<SelectorProps> = ({
       >
         {selectedBook === "" ? "Select a book" : selectedBook}
       </Button>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          "aria-labelledby": "basic-button",
-        }}
-      >
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.GENESIS);
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={open}
+          onClose={() => {handleClose(selectedBook)}}
+          MenuListProps={{
+            "aria-labelledby": "basic-button",
           }}
         >
-          Genesis
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.GENESIS);
+            }}
+          >
+            Genesis
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.EXODUS);
-          }}
-        >
-          Exodus
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.EXODUS);
+            }}
+          >
+            Exodus
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.LEVITICUS);
-          }}
-        >
-          Leviticus
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.LEVITICUS);
+            }}
+          >
+            Leviticus
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.NUMBERS);
-          }}
-        >
-          Numbers
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.NUMBERS);
+            }}
+          >
+            Numbers
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.DEUTERONOMY);
-          }}
-        >
-          Deuteronomy
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.DEUTERONOMY);
+            }}
+          >
+            Deuteronomy
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.JOSHUA);
-          }}
-        >
-          Joshua
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.JOSHUA);
+            }}
+          >
+            Joshua
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.JUDGES);
-          }}
-        >
-          Judges
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.JUDGES);
+            }}
+          >
+            Judges
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.RUTH);
-          }}
-        >
-          Ruth
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.RUTH);
+            }}
+          >
+            Ruth
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.SAMUEL1);
-          }}
-        >
-          1 Samuel
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.SAMUEL1);
+            }}
+          >
+            1 Samuel
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.SAMUEL2);
-          }}
-        >
-          2 Samuel
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.SAMUEL2);
+            }}
+          >
+            2 Samuel
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.KINGS1);
-          }}
-        >
-          1 Kings
-        </MenuItem>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.KINGS1);
+            }}
+          >
+            1 Kings
+          </MenuItem>
 
-        <MenuItem
-          onClick={() => {
-            handleClose(BOOKS.KINGS2);
-          }}
-        >
-          2 Kings
-        </MenuItem>
-      </Menu>
+          <MenuItem
+            onClick={() => {
+              handleClose(BOOKS.KINGS2);
+            }}
+          >
+            2 Kings
+          </MenuItem>
+        </Menu>
     </div>
   );
 };
