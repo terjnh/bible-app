@@ -64,10 +64,14 @@ function App() {
   };
 
   const updateChapter = (chapter: number) => {
+    if(chapter > chapters) {
+      console.log("Invalid chapter -> higher than max chapter for this book")
+      console.log("TODO: implement error toast here..")
+    }
     setCurrentChapter(chapter);
     setIsChapterChosen(true);
     var getChapterAndBook = book + "+" + chapter;
-    dispatch(GetVerse(getChapterAndBook));
+    // dispatch(GetVerse(getChapterAndBook));
     console.log("Current book: ", book, "| Current chapter:", chapter);
 
     // dispatch(GetEsvVerse(getChapterAndBook))
