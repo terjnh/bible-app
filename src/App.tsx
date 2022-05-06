@@ -4,9 +4,10 @@ import "./App.css";
 import { RootStore } from "./Store";
 import { GetVerse } from "./actions/BibleActions";
 import { GetEsvVerse } from "./actions/EsvActions";
-
 import BookSelector from "./components/BookSelector";
 import ChapterSelector from "./components/ChapterSelector";
+import CustomizedSnackbars from "./components/CustomizedSnackbars";
+
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
@@ -38,6 +39,7 @@ function App() {
 
   const [currentChapter, setCurrentChapter] = useState(0);
   const [currentVerses, setCurrentVerses] = useState<any>([]);
+  const [isInvalidChapter, setIsInvalidChapter] = useState(false);
 
   const [esvDisplayVerses, setEsvDisplayVerses] = useState<string>("");
 
@@ -64,14 +66,16 @@ function App() {
   };
 
   const updateChapter = (chapter: number) => {
-    if(chapter > chapters) {
-      console.log("Invalid chapter -> higher than max chapter for this book")
-      console.log("TODO: implement error toast here..")
+    setIsInvalidChapter(false);
+    if (chapter > chapters) {
+      console.log("Invalid chapter -> higher than max chapter for this book");
+      console.log("TODO: implement error toast here..");
+      setIsInvalidChapter(true);
     }
     setCurrentChapter(chapter);
     setIsChapterChosen(true);
     var getChapterAndBook = book + "+" + chapter;
-    // dispatch(GetVerse(getChapterAndBook));
+    dispatch(GetVerse(getChapterAndBook));
     console.log("Current book: ", book, "| Current chapter:", chapter);
 
     // dispatch(GetEsvVerse(getChapterAndBook))
@@ -152,7 +156,7 @@ function App() {
           <ResponsiveAppBar />
         </Grid>
 
-        <Typography sx={{mt: 4}}variant="h5" component="div" gutterBottom>
+        <Typography sx={{ mt: 4 }} variant="h5" component="div" gutterBottom>
           Please select book and chapter as needed
         </Typography>
 
@@ -161,7 +165,7 @@ function App() {
             item
             xs={12}
             sm={3}
-            sx={{ display: "flex", mt: 4 }}
+            sx={{ display: "flex", mt: 8 }}
             justifyContent="center"
           >
             <BookSelector
@@ -187,7 +191,7 @@ function App() {
           <Grid
             item
             xs={12}
-            sm={4}
+            sm={5}
             sx={{ display: "flex", mt: 4 }}
             justifyContent="center"
           >
@@ -198,6 +202,16 @@ function App() {
               isLoadingVerses={isLoadingVerses}
             />
           </Grid>
+        </Grid>
+
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          sx={{ display: "flex", mt: 4 }}
+          justifyContent="center"
+        >
+          <CustomizedSnackbars isInvalidChapter={isInvalidChapter} />
         </Grid>
 
         <Box m={2} pt={3}>
