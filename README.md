@@ -11,8 +11,8 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Fixed: Bug in typing in `input field` directly for `Chapter` (it does not update)
+- Implemented error toast for invalid chapter selection
 
 
 ## TODO:
-- Implement error toast for invalid chapter selection
+- 
