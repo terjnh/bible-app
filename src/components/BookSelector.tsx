@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
+import Divider from '@mui/material/Divider';
 
 import { BOOKS, CHAPTERS } from "../assets/definestrings";
 import { ClickAwayListener } from "@mui/material";
@@ -33,6 +34,7 @@ const BookSelector: React.FC<SelectorProps> = ({
 
   const getMaxChapter = (book: string) => {
     switch (book) {
+      // Law
       case BOOKS.GENESIS:
         return CHAPTERS.GENESIS;
       case BOOKS.EXODUS:
@@ -43,6 +45,7 @@ const BookSelector: React.FC<SelectorProps> = ({
         return CHAPTERS.NUMBERS;
       case BOOKS.DEUTERONOMY:
         return CHAPTERS.DEUTERONOMY;
+      // Old Testament Narrative
       case BOOKS.JOSHUA:
         return CHAPTERS.JOSHUA;
       case BOOKS.JUDGES:
@@ -67,10 +70,28 @@ const BookSelector: React.FC<SelectorProps> = ({
         return CHAPTERS.NEHEMIAH;
       case BOOKS.ESTHER:
         return CHAPTERS.ESTHER;
+      // Wisdom Literature
       case BOOKS.JOB:
         return CHAPTERS.JOB;
       case BOOKS.PSALMS:
         return CHAPTERS.PSALMS;
+      case BOOKS.PROVERBS:
+        return CHAPTERS.PROVERBS;
+      case BOOKS.ECCLESIASTES:
+        return CHAPTERS.ECCLESIASTES;
+      case BOOKS.SONGOFSOLOMON:
+        return CHAPTERS.SONGOFSOLOMON;
+      // Major Prophets
+      case BOOKS.ISAIAH:
+        return CHAPTERS.ISAIAH;
+      case BOOKS.JEREMIAH:
+        return CHAPTERS.JEREMIAH;
+      case BOOKS.LAMENTATIONS:
+        return CHAPTERS.LAMENTATIONS;
+      case BOOKS.EZEKIEL:
+        return CHAPTERS.EZEKIEL;
+      case BOOKS.DANIEL:
+        return CHAPTERS.DANIEL;
       default:
         return 0;
     }
@@ -111,6 +132,7 @@ const BookSelector: React.FC<SelectorProps> = ({
           "aria-labelledby": "basic-button",
         }}
       >
+        {/* Law */}
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.GENESIS);
@@ -118,7 +140,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Genesis
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.EXODUS);
@@ -126,7 +147,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Exodus
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.LEVITICUS);
@@ -134,7 +154,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Leviticus
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.NUMBERS);
@@ -142,7 +161,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Numbers
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.DEUTERONOMY);
@@ -150,7 +168,8 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Deuteronomy
         </MenuItem>
-
+        <Divider />
+        {/* Old Testament Narrative */}
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.JOSHUA);
@@ -158,7 +177,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Joshua
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.JUDGES);
@@ -166,7 +184,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Judges
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.RUTH);
@@ -174,7 +191,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Ruth
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.SAMUEL1);
@@ -182,7 +198,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           1 Samuel
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.SAMUEL2);
@@ -190,7 +205,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           2 Samuel
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.KINGS1);
@@ -198,7 +212,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           1 Kings
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.KINGS2);
@@ -206,7 +219,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           2 Kings
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.CHRONICLES1);
@@ -214,7 +226,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           1 Chronicles
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.CHRONICLES2);
@@ -222,7 +233,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           2 Chronicles
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.EZRA);
@@ -230,7 +240,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Ezra
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.NEHEMIAH);
@@ -238,7 +247,6 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Nehemiah
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.ESTHER);
@@ -246,7 +254,8 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Esther
         </MenuItem>
-
+        <Divider />
+        {/* Wisdom Literature */}
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.JOB);
@@ -254,13 +263,70 @@ const BookSelector: React.FC<SelectorProps> = ({
         >
           Job
         </MenuItem>
-
         <MenuItem
           onClick={() => {
             handleClose(BOOKS.PSALMS);
           }}
         >
           Psalms
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.PROVERBS);
+          }}
+        >
+          Proverbs
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.ECCLESIASTES);
+          }}
+        >
+          Ecclesiastes
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.SONGOFSOLOMON);
+          }}
+        >
+          Song Of Solomon
+        </MenuItem>
+        <Divider />
+        {/* Major Prophets */}
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.ISAIAH);
+          }}
+        >
+          Isaiah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.JEREMIAH);
+          }}
+        >
+          Jeremiah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.LAMENTATIONS);
+          }}
+        >
+          Lamentations
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.EZEKIEL);
+          }}
+        >
+          Ezekiel
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.DANIEL);
+          }}
+        >
+          Daniel
         </MenuItem>
       </Menu>
     </div>

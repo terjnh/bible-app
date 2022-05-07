@@ -57,7 +57,8 @@ const ChapterSelector: React.FC<Props> = ({
         </Grid>
         <Grid item xs>
           <Slider
-            value={typeof chapter === "number" ? chapter : 0}
+            // value={typeof(chapter) === "number" ? chapter : 0}
+            value={chapter}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
             disabled={!isBookChosen}
