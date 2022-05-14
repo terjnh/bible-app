@@ -227,7 +227,7 @@ function App() {
 
         <Box
           id="temporarySpacer1"
-          sx={{ width: "100%", height: "200px" }}
+          sx={{ width: "100%", height: "150px" }}
         ></Box>
 
         <Box m={2} pt={2}>

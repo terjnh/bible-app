@@ -30,6 +30,19 @@ export const BOOKS = {
     LAMENTATIONS: "Lamentations",
     EZEKIEL: "Ezekiel",
     DANIEL: "Daniel",
+    // Minor Prophets
+    HOSEA: "Hosea",
+    JOEL: "Joel",
+    AMOS: "Amos",
+    OBADIAH: "Obadiah",
+    JONAH: "Jonah",
+    MICAH: "Micah",
+    NAHUM: "Nahum",
+    HABAKKUK: "Habakkuk",
+    ZEPHANIAH: "Zephaniah",
+    HAGGAI: "Haggai",
+    ZECHARIAH: "Zechariah",
+    MALACHI: "Malachi",
 }
 
 export const CHAPTERS = {
@@ -64,6 +77,19 @@ export const CHAPTERS = {
     LAMENTATIONS: 5,
     EZEKIEL: 48,
     DANIEL: 12,
+    // Minor Prophets
+    HOSEA: 14,
+    JOEL: 3,
+    AMOS: 9,
+    OBADIAH: 1,
+    JONAH: 4,
+    MICAH: 7,
+    NAHUM: 3,
+    HABAKKUK: 3,
+    ZEPHANIAH: 3,
+    HAGGAI: 2,
+    ZECHARIAH: 14,
+    MALACHI: 4,
 }
 
 

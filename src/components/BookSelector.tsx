@@ -92,6 +92,31 @@ const BookSelector: React.FC<SelectorProps> = ({
         return CHAPTERS.EZEKIEL;
       case BOOKS.DANIEL:
         return CHAPTERS.DANIEL;
+      // Minor Prophets
+      case BOOKS.HOSEA:
+        return CHAPTERS.HOSEA;
+      case BOOKS.JOEL:
+        return CHAPTERS.JOEL;
+      case BOOKS.AMOS:
+        return CHAPTERS.AMOS;
+      case BOOKS.OBADIAH:
+        return CHAPTERS.OBADIAH;
+      case BOOKS.JONAH:
+        return CHAPTERS.JONAH;
+      case BOOKS.MICAH:
+        return CHAPTERS.MICAH;
+      case BOOKS.NAHUM:
+        return CHAPTERS.NAHUM;
+      case BOOKS.HABAKKUK:
+        return CHAPTERS.HABAKKUK;
+      case BOOKS.ZEPHANIAH:
+        return CHAPTERS.ZEPHANIAH;
+      case BOOKS.HAGGAI:
+        return CHAPTERS.HAGGAI;
+      case BOOKS.ZECHARIAH:
+        return CHAPTERS.ZECHARIAH;
+      case BOOKS.MALACHI:
+        return CHAPTERS.MALACHI;
       default:
         return 0;
     }
@@ -327,6 +352,93 @@ const BookSelector: React.FC<SelectorProps> = ({
           }}
         >
           Daniel
+        </MenuItem>
+
+        <Divider />
+        {/* Minor Prophets */}
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.HOSEA);
+          }}
+        >
+          Hosea
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.JOEL);
+          }}
+        >
+          Joel
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.AMOS);
+          }}
+        >
+          Amos
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.OBADIAH);
+          }}
+        >
+          Obadiah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.JONAH);
+          }}
+        >
+          Jonah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.MICAH);
+          }}
+        >
+          Micah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.NAHUM);
+          }}
+        >
+          Nahum
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.HABAKKUK);
+          }}
+        >
+          Habakkuk
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.ZEPHANIAH);
+          }}
+        >
+          Zephaniah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.HAGGAI);
+          }}
+        >
+          Haggai
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.ZECHARIAH);
+          }}
+        >
+          Zechariah
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            handleClose(BOOKS.MALACHI);
+          }}
+        >
+          Malachi
         </MenuItem>
       </Menu>
     </div>
