@@ -21,6 +21,7 @@ import {
 } from "./assets/definestrings";
 import VerseSelector from "./components/VerseSelector";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import TestSearchBox from "./components/TestSearchBox";
 
 function App() {
   const dispatch = useDispatch();
@@ -242,10 +243,22 @@ function App() {
           )}
         </Box>
 
+        <Grid
+          item
+          xs={12}
+          sm={5}
+          sx={{ display: "flex", mt: 4 }}
+          justifyContent="center"
+        >
+          <TestSearchBox />
+        </Grid>
+
         <Box
           id="temporarySpacer2"
           sx={{ width: "100%", height: "500px" }}
         ></Box>
+
+        
       </Box>
     </div>
   );

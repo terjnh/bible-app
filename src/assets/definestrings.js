@@ -43,6 +43,29 @@ export const BOOKS = {
     HAGGAI: "Haggai",
     ZECHARIAH: "Zechariah",
     MALACHI: "Malachi",
+
+    // NEW TESTAMENT
+    // Gospels
+    MATTHEW: "Matthew",
+    MARK: "Mark",
+    LUKE: "Luke",
+    JOHN: "John",
+    // History
+    ACTS: "Acts",
+    // Pauline Epistles
+    ROMANS: "Romans",
+    CORINTHIANS1: "1Corinthians",
+    CORINTHIANS2: "2Corinthians",
+    GALATIANS: "Galatians",
+    EPHESIANS: "Ephesians",
+    PHILIPPIANS: "Philippians",
+    COLOSSIANS: "Colossians",
+    THESSALONIANS1: "1Thessalonians",
+    THESSALONIANS2: "2Thessalonians",
+    TIMOTHY1: "1Timothy",
+    TIMOTHY2: "2Timothy",
+    TITUS: "Titus",
+    PHILEMON: "Philemon",
 }
 
 export const CHAPTERS = {
@@ -90,6 +113,29 @@ export const CHAPTERS = {
     HAGGAI: 2,
     ZECHARIAH: 14,
     MALACHI: 4,
+
+    // NEW TESTAMENT
+    // Gospels
+    MATTHEW: 28,
+    MARK: 16,
+    LUKE: 24,
+    JOHN: 21,
+    // History
+    ACTS: 28,
+    // Pauline Epistles
+    ROMANS: 16,
+    CORINTHIANS1: 16,
+    CORINTHIANS2: 13,
+    GALATIANS: 6,
+    EPHESIANS: 6,
+    PHILIPPIANS: 4,
+    COLOSSIANS: 4,
+    THESSALONIANS1: 5,
+    THESSALONIANS2: 3,
+    TIMOTHY1: 6,
+    TIMOTHY2: 4,
+    TITUS: 3,
+    PHILEMON: 1,
 }
 
 
