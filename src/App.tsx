@@ -4,9 +4,6 @@ import "./App.css";
 import { RootStore } from "./Store";
 import { GetVerse } from "./actions/BibleActions";
 import { GetEsvVerse } from "./actions/EsvActions";
-import BookSelector from "./components/BookSelector";
-import ChapterSelector from "./components/ChapterSelector";
-import CustomizedSnackbars from "./components/CustomizedSnackbars";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -19,9 +16,12 @@ import {
   COPYRIGHT_TEXT_LN1,
   COPYRIGHT_TEXT_LN2,
 } from "./assets/definestrings";
+import BookSelector from "./components/BookSelector";
+import ChapterSelector from "./components/ChapterSelector";
+import CustomizedSnackbars from "./components/CustomizedSnackbars";
 import VerseSelector from "./components/VerseSelector";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
-import TestSearchBox from "./components/TestSearchBox";
+import BookSelectorSearch from "./components/BookSelectorSearch";
 
 function App() {
   const dispatch = useDispatch();
@@ -205,6 +205,18 @@ function App() {
           </Grid>
         </Grid>
 
+        <Grid container spacing={1}>
+          <Grid
+            item
+            xs={12}
+            sm={3}
+            sx={{ display: "flex", mt: 8 }}
+            justifyContent="center"
+          >
+            <BookSelectorSearch />
+          </Grid>
+        </Grid>
+
         <Grid
           item
           xs={12}
@@ -243,22 +255,10 @@ function App() {
           )}
         </Box>
 
-        <Grid
-          item
-          xs={12}
-          sm={5}
-          sx={{ display: "flex", mt: 4 }}
-          justifyContent="center"
-        >
-          <TestSearchBox />
-        </Grid>
-
         <Box
           id="temporarySpacer2"
           sx={{ width: "100%", height: "500px" }}
         ></Box>
-
-        
       </Box>
     </div>
   );
