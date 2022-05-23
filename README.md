@@ -11,7 +11,7 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Added BookSelectorSearch.jsx (possible search function for book?)
+- Did some modification on book search bar
 
 ## TODO:
 - Put test seach bar into another page

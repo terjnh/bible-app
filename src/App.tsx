@@ -213,7 +213,9 @@ function App() {
             sx={{ display: "flex", mt: 8 }}
             justifyContent="center"
           >
-            <BookSelectorSearch />
+            <BookSelectorSearch 
+              testProp="testProp123"
+            />
           </Grid>
         </Grid>
 
