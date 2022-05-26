@@ -66,6 +66,11 @@ function App() {
     // updateMaxChapter(book);
   };
 
+  const updateBook2 = (book: string, maxChapter: number) => {
+    console.log("App.tsx ~ updateBook2--book:", book, ", maxChapter:", maxChapter)
+    
+  }
+
   const updateChapter = (chapter: number) => {
     setIsInvalidChapter(false);
     if (chapter > chapters) {
@@ -215,6 +220,7 @@ function App() {
           >
             <BookSelectorSearch 
               testProp="testProp123"
+              updateBook2={updateBook2}
             />
           </Grid>
         </Grid>
