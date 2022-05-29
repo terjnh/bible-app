@@ -59,11 +59,16 @@ function App() {
   };
 
   const bookUpdate = (book: string, maxChapter: number) => {
-    console.log("App.tsx- bookUpdate--book:", book, ", maxChapter:", maxChapter)
+    console.log(
+      "App.tsx- bookUpdate--book:",
+      book,
+      ", maxChapter:",
+      maxChapter
+    );
     setIsBookChosen(true);
     setBook(book);
     setChapters(maxChapter);
-  }
+  };
 
   const updateChapter = (chapter: number) => {
     setIsInvalidChapter(false);
@@ -140,115 +145,113 @@ function App() {
   }, [esvState]);
 
   return (
-    <div className="App">
-      <Box sx={{ margin: "auto", width: "100%", maxWidth: 800 }}>
-        <Typography sx={{ mt: 6 }} variant="h3" component="div" gutterBottom>
-          ESV App
-        </Typography>
+      <div className="App">
+        <Box sx={{ margin: "auto", width: "100%", maxWidth: 800 }}>
+          <Typography sx={{ mt: 6 }} variant="h3" component="div" gutterBottom>
+            ESV App
+          </Typography>
 
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          sx={{ display: "flex", mt: 2 }}
-          justifyContent="center"
-        >
-          <ResponsiveAppBar />
-        </Grid>
-
-        <Typography sx={{ mt: 4 }} variant="h5" component="div" gutterBottom>
-          Please select book and chapter
-        </Typography>
-
-        <Grid container spacing={1}>
           <Grid
             item
             xs={12}
-            sm={4}
-            sx={{ display: "flex", mt: 8 }}
+            sm={12}
+            sx={{ display: "flex", mt: 2 }}
             justifyContent="center"
           >
-            <BookSelectorSearch 
-              testProp="testProp123"
-              bookUpdate={bookUpdate}
-            />
+            {/* <ResponsiveAppBar /> */}
           </Grid>
+
+          <Typography sx={{ mt: 4 }} variant="h5" component="div" gutterBottom>
+            Please select book and chapter
+          </Typography>
+
+          <Grid container spacing={1}>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ display: "flex", mt: 8 }}
+              justifyContent="center"
+            >
+              <BookSelectorSearch
+                testProp="testProp123"
+                bookUpdate={bookUpdate}
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ display: "flex", mt: 4 }}
+              justifyContent="center"
+            >
+              <ChapterSelector
+                maxChapter={chapters}
+                updateChapter={updateChapter}
+                isBookChosen={isBookChosen}
+                chapterChanged={chapterChanged}
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={4}
+              sx={{ display: "flex", mt: 4 }}
+              justifyContent="center"
+            >
+              <VerseSelector
+                verses={verses}
+                updateVerses={updateVerses}
+                isChapterChosen={isChapterChosen}
+                isLoadingVerses={isLoadingVerses}
+              />
+            </Grid>
+          </Grid>
+
           <Grid
             item
             xs={12}
-            sm={4}
+            sm={12}
             sx={{ display: "flex", mt: 4 }}
             justifyContent="center"
           >
-            <ChapterSelector
-              maxChapter={chapters}
-              updateChapter={updateChapter}
-              isBookChosen={isBookChosen}
-              chapterChanged={chapterChanged}
-            />
+            <CustomizedSnackbars isInvalidChapter={isInvalidChapter} />
           </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={4}
-            sx={{ display: "flex", mt: 4 }}
-            justifyContent="center"
-          >
-            <VerseSelector
-              verses={verses}
-              updateVerses={updateVerses}
-              isChapterChosen={isChapterChosen}
-              isLoadingVerses={isLoadingVerses}
-            />
-          </Grid>
-        </Grid>
 
-        
+          <Box m={2} pt={3}>
+            {bibleState.bible && (
+              <div>
+                <br />
+                <Typography variant="body1" component="div">
+                  {esvDisplayVerses}
+                </Typography>
+              </div>
+            )}
+          </Box>
 
-        <Grid
-          item
-          xs={12}
-          sm={12}
-          sx={{ display: "flex", mt: 4 }}
-          justifyContent="center"
-        >
-          <CustomizedSnackbars isInvalidChapter={isInvalidChapter} />
-        </Grid>
+          <Box
+            id="temporarySpacer1"
+            sx={{ width: "100%", height: "100px" }}
+          ></Box>
 
-        <Box m={2} pt={3}>
-          {bibleState.bible && (
-            <div>
-              <br />
-              <Typography variant="body1" component="div">
-                {esvDisplayVerses}
-              </Typography>
-            </div>
-          )}
+          <Box m={2} pt={2}>
+            {bibleState.bible && (
+              <div>
+                <br />
+                <Typography variant="caption" component="div">
+                  {COPYRIGHT_TEXT_LN1}
+                  {COPYRIGHT_TEXT_LN2}
+                </Typography>
+              </div>
+            )}
+          </Box>
+
+          <Box
+            id="temporarySpacer2"
+            sx={{ width: "100%", height: "500px" }}
+          ></Box>
         </Box>
-
-        <Box
-          id="temporarySpacer1"
-          sx={{ width: "100%", height: "100px" }}
-        ></Box>
-
-        <Box m={2} pt={2}>
-          {bibleState.bible && (
-            <div>
-              <br />
-              <Typography variant="caption" component="div">
-                {COPYRIGHT_TEXT_LN1}
-                {COPYRIGHT_TEXT_LN2}
-              </Typography>
-            </div>
-          )}
-        </Box>
-
-        <Box
-          id="temporarySpacer2"
-          sx={{ width: "100%", height: "500px" }}
-        ></Box>
-      </Box>
-    </div>
+      </div>
   );
 }
 
