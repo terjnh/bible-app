@@ -11,7 +11,7 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Added books to definestring.js & BookSelectorSearch.jsx
+- Commented out mock appbar
 
 ## TODO:
 - Put test seach bar into another page

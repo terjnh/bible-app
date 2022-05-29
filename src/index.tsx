@@ -6,10 +6,28 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Store";
 
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
+const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+});
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  <ThemeProvider theme={lightTheme}>
+    <CssBaseline />
+  <Provider store={store}>  
+      <App />
+  </Provider>
+  </ThemeProvider>,
   document.getElementById("root")
 );
 
