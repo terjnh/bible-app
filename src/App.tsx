@@ -58,16 +58,8 @@ function App() {
     }
   };
 
-  const updateBook = (book: string, maxChapter: number) => {
-    setIsBookChosen(true);
-    setBook(book);
-    setChapters(maxChapter);
-    console.log("book:", book, ", maxChapter:", maxChapter);
-    // updateMaxChapter(book);
-  };
-
-  const updateBook2 = (book: string, maxChapter: number) => {
-    console.log("App.tsx ~ updateBook2--book:", book, ", maxChapter:", maxChapter)
+  const bookUpdate = (book: string, maxChapter: number) => {
+    console.log("App.tsx- bookUpdate--book:", book, ", maxChapter:", maxChapter)
     setIsBookChosen(true);
     setBook(book);
     setChapters(maxChapter);
@@ -176,14 +168,9 @@ function App() {
             sx={{ display: "flex", mt: 8 }}
             justifyContent="center"
           >
-            {/* <BookSelector
-              book={book}
-              updateBook={updateBook}
-              setChapters={setChapters}
-            /> */}
             <BookSelectorSearch 
               testProp="testProp123"
-              updateBook2={updateBook2}
+              bookUpdate={bookUpdate}
             />
           </Grid>
           <Grid
@@ -241,14 +228,14 @@ function App() {
 
         <Box
           id="temporarySpacer1"
-          sx={{ width: "100%", height: "150px" }}
+          sx={{ width: "100%", height: "100px" }}
         ></Box>
 
         <Box m={2} pt={2}>
           {bibleState.bible && (
             <div>
               <br />
-              <Typography variant="body2" component="div">
+              <Typography variant="caption" component="div">
                 {COPYRIGHT_TEXT_LN1}
                 {COPYRIGHT_TEXT_LN2}
               </Typography>
