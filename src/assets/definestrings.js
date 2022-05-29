@@ -66,6 +66,17 @@ export const BOOKS = {
     TIMOTHY2: "2Timothy",
     TITUS: "Titus",
     PHILEMON: "Philemon",
+    // General Epistles
+    HEBREWS: "Hebrews",
+    JAMES: "James",
+    PETER1: "1Peter",
+    PETER2: "2Peter",
+    JOHN1: "1John",
+    JOHN2: "2John",
+    JOHN3: "3John",
+    JUDE: "Jude",
+    // Apocalyptic Writings (Prophecy)
+    REVELATION: "Revelation"
 }
 
 export const CHAPTERS = {
@@ -136,6 +147,17 @@ export const CHAPTERS = {
     TIMOTHY2: 4,
     TITUS: 3,
     PHILEMON: 1,
+    // General Epistles
+    HEBREWS: 13,
+    JAMES: 5,
+    PETER1: 5,
+    PETER2: 3,
+    JOHN1: 5,
+    JOHN2: 1,
+    JOHN3: 1,
+    JUDE: 1,
+    //Apocalyptic Writings (Prophecy)
+    REVELATION: 22,
 }
 
 

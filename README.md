@@ -11,7 +11,7 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Changed App.tsx to display Book-selector search bar, instead of dropdown menu
+- Added books to definestring.js & BookSelectorSearch.jsx
 
 ## TODO:
 - Put test seach bar into another page
