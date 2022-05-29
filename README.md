@@ -11,9 +11,7 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- BookSelectorSearch.jsx 
-  - book search bar: retrieve max chapter from selected book
-  - 'Confirm' button enabled only when filtered to 1 book
+- Changed App.tsx to display Book-selector search bar, instead of dropdown menu
 
 ## TODO:
 - Put test seach bar into another page

@@ -21,14 +21,14 @@ const SearchBar = ({ setSearchQuery }) => (
       placeholder="Search..."
       size="small"
     />
-    <IconButton
+    {/* <IconButton
       aria-label="search"
       onClick={() => {
         console.log("Search clicked");
       }}
     >
       <SearchIcon style={{ fill: "blue" }} />
-    </IconButton>
+    </IconButton> */}
   </form>
 );
 
@@ -106,13 +106,13 @@ export default function BookSelectorSearch({ testProp, updateBook2 }) {
         alignSelf: "center",
         justifyContent: "center",
         flexDirection: "column",
-        padding: 20,
+        padding: 1,
       }}
     >
       <SearchBar searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Button
         variant="contained"
-        sx={{ display: "flex", mt: 1, ml: 20, mr: 6 }}
+        sx={{ display: "flex", mt: 2, ml: 12, mr: 12 }}
         disabled={!isOneBookChosen}
         onClick={() => {
           // console.log("dataFiltered:", dataFiltered[0]);
@@ -121,7 +121,7 @@ export default function BookSelectorSearch({ testProp, updateBook2 }) {
       >
         Confirm
       </Button>
-      <div style={{ padding: 3 }}>
+      <div style={{ padding: 2 }}>
         {dataFiltered.map((d) => (
           <div
             className="text"

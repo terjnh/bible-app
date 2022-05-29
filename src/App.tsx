@@ -68,7 +68,9 @@ function App() {
 
   const updateBook2 = (book: string, maxChapter: number) => {
     console.log("App.tsx ~ updateBook2--book:", book, ", maxChapter:", maxChapter)
-    
+    setIsBookChosen(true);
+    setBook(book);
+    setChapters(maxChapter);
   }
 
   const updateChapter = (chapter: number) => {
@@ -163,21 +165,25 @@ function App() {
         </Grid>
 
         <Typography sx={{ mt: 4 }} variant="h5" component="div" gutterBottom>
-          Please select book and chapter as needed
+          Please select book and chapter
         </Typography>
 
         <Grid container spacing={1}>
           <Grid
             item
             xs={12}
-            sm={3}
+            sm={4}
             sx={{ display: "flex", mt: 8 }}
             justifyContent="center"
           >
-            <BookSelector
+            {/* <BookSelector
               book={book}
               updateBook={updateBook}
               setChapters={setChapters}
+            /> */}
+            <BookSelectorSearch 
+              testProp="testProp123"
+              updateBook2={updateBook2}
             />
           </Grid>
           <Grid
@@ -197,7 +203,7 @@ function App() {
           <Grid
             item
             xs={12}
-            sm={5}
+            sm={4}
             sx={{ display: "flex", mt: 4 }}
             justifyContent="center"
           >
@@ -210,20 +216,7 @@ function App() {
           </Grid>
         </Grid>
 
-        <Grid container spacing={1}>
-          <Grid
-            item
-            xs={12}
-            sm={3}
-            sx={{ display: "flex", mt: 8 }}
-            justifyContent="center"
-          >
-            <BookSelectorSearch 
-              testProp="testProp123"
-              updateBook2={updateBook2}
-            />
-          </Grid>
-        </Grid>
+        
 
         <Grid
           item
