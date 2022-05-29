@@ -4,9 +4,6 @@ import "./App.css";
 import { RootStore } from "./Store";
 import { GetVerse } from "./actions/BibleActions";
 import { GetEsvVerse } from "./actions/EsvActions";
-import BookSelector from "./components/BookSelector";
-import ChapterSelector from "./components/ChapterSelector";
-import CustomizedSnackbars from "./components/CustomizedSnackbars";
 
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -19,8 +16,12 @@ import {
   COPYRIGHT_TEXT_LN1,
   COPYRIGHT_TEXT_LN2,
 } from "./assets/definestrings";
+import BookSelector from "./components/BookSelector";
+import ChapterSelector from "./components/ChapterSelector";
+import CustomizedSnackbars from "./components/CustomizedSnackbars";
 import VerseSelector from "./components/VerseSelector";
 import ResponsiveAppBar from "./components/ResponsiveAppBar";
+import BookSelectorSearch from "./components/BookSelectorSearch";
 
 function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,13 @@ function App() {
     console.log("book:", book, ", maxChapter:", maxChapter);
     // updateMaxChapter(book);
   };
+
+  const updateBook2 = (book: string, maxChapter: number) => {
+    console.log("App.tsx ~ updateBook2--book:", book, ", maxChapter:", maxChapter)
+    setIsBookChosen(true);
+    setBook(book);
+    setChapters(maxChapter);
+  }
 
   const updateChapter = (chapter: number) => {
     setIsInvalidChapter(false);
@@ -157,21 +165,25 @@ function App() {
         </Grid>
 
         <Typography sx={{ mt: 4 }} variant="h5" component="div" gutterBottom>
-          Please select book and chapter as needed
+          Please select book and chapter
         </Typography>
 
         <Grid container spacing={1}>
           <Grid
             item
             xs={12}
-            sm={3}
+            sm={4}
             sx={{ display: "flex", mt: 8 }}
             justifyContent="center"
           >
-            <BookSelector
+            {/* <BookSelector
               book={book}
               updateBook={updateBook}
               setChapters={setChapters}
+            /> */}
+            <BookSelectorSearch 
+              testProp="testProp123"
+              updateBook2={updateBook2}
             />
           </Grid>
           <Grid
@@ -191,7 +203,7 @@ function App() {
           <Grid
             item
             xs={12}
-            sm={5}
+            sm={4}
             sx={{ display: "flex", mt: 4 }}
             justifyContent="center"
           >
@@ -203,6 +215,8 @@ function App() {
             />
           </Grid>
         </Grid>
+
+        
 
         <Grid
           item
@@ -227,7 +241,7 @@ function App() {
 
         <Box
           id="temporarySpacer1"
-          sx={{ width: "100%", height: "200px" }}
+          sx={{ width: "100%", height: "150px" }}
         ></Box>
 
         <Box m={2} pt={2}>

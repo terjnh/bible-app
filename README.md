@@ -11,8 +11,8 @@ GET Numbers 12, Verses 3 - 5
 eg. https://api.esv.org/v3/passage/text/?q=Numbers+12:3-5
 
 ## Update:
-- Added more books into BookSelector
-- Added dividers between different segments of Bible books
+- Changed App.tsx to display Book-selector search bar, instead of dropdown menu
 
 ## TODO:
-- 
+- Put test seach bar into another page
+- Implement search into Book Selector
